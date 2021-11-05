@@ -1,0 +1,17 @@
+/* *************************** FONTS ************************************* */
+$font-family--dosis-bold: "Dosis-Bold";
+$font-family--dosis-extra-bold: "Dosis-ExtraBold";
+$font-family--dosis-medium: "Dosis-Medium";
+
+@font-face {
+    font-family: $font-family--dosis-bold;
+    src: url("../assets/fonts/Dosis-Bold.ttf");
+}
+@font-face {
+    font-family: $font-family--dosis-extra-bold;
+    src: url("../assets/fonts/Dosis-ExtraBold.ttf");
+}
+@font-face {
+    font-family: $font-family--dosis-medium;
+    src: url("../assets/fonts/Dosis-Medium.ttf");
+}

@@ -1,0 +1,47 @@
+<div class="home-container container-fluid">
+  <div class="row header-container">
+    <div class="col details">
+      <div class="row top-row">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4 d-flex justify-content-end">
+          <i class="fas fa-sign-out-alt" (click)="onLogout()"></i>
+        </div>
+      </div>
+      <div class="row icon-row">
+        <div class="col">
+          <i class="fas fa-eye"></i>
+          <span>{{customerQrViewedSum}}</span>
+        </div>
+      </div>
+      <div class="row text-row">
+        <div class="col">
+          <span>Total views</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row list-container">
+    <div class="col">
+      <app-qr-redirect-list-item *ngIf="activeCustomerRedirect$ | async"
+        [customerRedirect]="activeCustomerRedirect$ | async" [isActive]="true">
+      </app-qr-redirect-list-item>
+      <app-qr-redirect-list-item *ngFor="let item of customerRedirects$ | async" [customerRedirect]="item"
+        (activeChange)="updateUI($event)">
+      </app-qr-redirect-list-item>
+      <div *ngIf="noRedirectLinks" class="how-to-container col">
+        <div class="row">
+          <h2>Get started:</h2>
+        </div>
+        <div class="row">
+          <p><span class="bold">Add new link:</span> Press the button in the right bottom corner</p>
+          <p><span class="bold">Edit existing link:</span> Swipe link item to the right</p>
+          <p><span class="bold">Set existing link as Active:</span> Swipe link item to the left</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="float-button new-qr-btn" color="primary" [routerLink]="routes.Customer.Children.NewQrRedirect.Path">
+    <i class="fas fa-plus"></i>
+  </button>
+</div>

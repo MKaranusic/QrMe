@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand">Qr-Admin</a>
+  <div class="collapse navbar-collapse">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link"
+        [routerLink]="Routes.Admin.Children.CreateCustomer.Path">{{Routes.Admin.Children.CreateCustomer.Name}}
+      </a>
+    </div>
+  </div>
+  <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onLogoutClick()">LogOut</button>
+</nav>

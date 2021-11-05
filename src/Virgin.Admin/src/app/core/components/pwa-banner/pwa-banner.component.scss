@@ -1,0 +1,39 @@
+@import "/src/theme/fonts.scss";
+@import "/src/theme/colors.scss";
+
+.banner-container {
+    color: $theme-color-primary;
+    font-family: $font-family--dosis-bold;
+    font-size: 25px;
+    height: 80px;
+    background: rgba(255, 242, 117, 1);
+
+    .exit-con {
+        font-size: 32px;
+        i {
+            position: relative;
+            top: 15px;
+            left: 18px;
+        }
+    }
+
+    .text-center {
+        span {
+            position: relative;
+            top: 20px;
+        }
+    }
+
+    .install-btn {
+        font-size: 20px;
+        width: 90px;
+        height: 40px;
+        background-color: $theme-color-primary;
+        border-radius: 35px;
+        border: none;
+
+        position: relative;
+        top: 17px;
+        right: 18px;
+    }
+}

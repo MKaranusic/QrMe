@@ -1,0 +1,25 @@
+@import "/src/theme/fonts.scss";
+@import "/src/theme/colors.scss";
+
+.not-set-container {
+    background-color: $theme-color-pwa-light-background;
+    color: $theme-color-primary;
+    overflow-y: hidden;
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fw-bold {
+        font-family: $font-family--dosis-extra-bold;
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+
+    .lead {
+        font-size: 25px;
+        font-family: $font-family--dosis-bold;
+        padding-bottom: 16px;
+    }
+}

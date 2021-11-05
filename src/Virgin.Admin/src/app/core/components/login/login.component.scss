@@ -1,0 +1,40 @@
+@import "/src/theme/fonts.scss";
+@import "/src/theme/colors.scss";
+
+.login-conatainer {
+    color: $theme-color-primary;
+    overflow-y: hidden;
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fw-bold {
+        font-family: $font-family--dosis-extra-bold;
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+
+    .lead {
+        font-size: 25px;
+        font-family: $font-family--dosis-bold;
+        padding-bottom: 16px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        height: 56px;
+        border-radius: 17px;
+        border: none;
+
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+        background: $theme-color-secondary-gradient;
+
+        color: $theme-color-white;
+        font-family: $font-family--dosis-extra-bold;
+        font-size: 25px;
+        letter-spacing: 4px;
+    }
+}

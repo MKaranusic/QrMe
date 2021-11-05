@@ -1,0 +1,113 @@
+@import "/src/theme/fonts.scss";
+@import "/src/theme/colors.scss";
+
+.home-container {
+    height: 100vh;
+
+    .header-container {
+        position: relative;
+        bottom: 1px;
+        background: $theme-color-primary-gradient;
+        height: 180px;
+        z-index: 1000;
+
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+
+        .details {
+            color: #fff;
+            padding-left: 34px;
+
+            .top-row {
+                height: 20%;
+                padding-top: 15px;
+                margin-bottom: 6px;
+
+                i {
+                    font-size: 22px;
+                }
+            }
+
+            .icon-row {
+                margin-bottom: -5px;
+
+                i {
+                    font-size: 60px;
+                }
+                span {
+                    position: relative;
+                    bottom: 5px;
+
+                    margin-left: 15px;
+                    font-size: 45px;
+                    letter-spacing: 4px;
+                    font-family: $font-family--dosis-extra-bold;
+                }
+            }
+
+            .text-row {
+                font-family: $font-family--dosis-extra-bold;
+                font-size: 25px;
+                letter-spacing: 5px;
+            }
+        }
+    }
+
+    .list-container {
+        overflow-y: scroll;
+        height: calc(100vh - 180px);
+        position: relative;
+        bottom: 1px;
+    }
+
+    .how-to-container {
+        padding-top: 30px;
+        color: $theme-color-primary;
+        font-family: $font-family--dosis-medium;
+        font-size: 23px;
+
+        h2 {
+            font-size: 40px;
+            font-family: $font-family--dosis-extra-bold;
+            margin-bottom: 31px;
+        }
+
+        p {
+            margin-bottom: 31px;
+
+            .bold {
+                font-family: $font-family--dosis-bold;
+            }
+        }
+    }
+}
+
+.float-button {
+    display: block;
+    opacity: 0.9;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.new-qr-btn {
+    height: 61px;
+    width: 61px;
+    border-radius: 50%;
+    background: $theme-color-primary-gradient;
+
+    font-size: 25px;
+    color: $theme-color-white;
+    font-weight: bold;
+    border: none;
+
+    -webkit-box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.4);
+
+    i {
+        position: relative;
+        top: 2px;
+    }
+}

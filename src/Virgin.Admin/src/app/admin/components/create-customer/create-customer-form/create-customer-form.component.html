@@ -1,0 +1,80 @@
+<div [formGroup]="customerFormGroup">
+  <div class="form-group">
+    <label for="emailId">Email</label>
+    <input formControlName="email" type="email" class="form-control" id="emailId" placeholder="example@gmail.com">
+    <div *ngIf="!customerFormGroup.controls.email.valid && customerFormGroup.controls.email.touched"
+      class="col alert alert-danger">
+      <small class="text-danger"
+        *ngIf="customerFormGroup.controls.email.hasError('required') && customerFormGroup.controls.email.touched">
+        Field is required!
+      </small>
+      <small class="text-danger"
+        *ngIf="customerFormGroup.controls.email.hasError('email') && customerFormGroup.controls.email.touched">
+        Field must be valid email!
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="nameId">Name</label>
+    <input formControlName="name" type="text" class="form-control" id="nameId" placeholder="Pero">
+    <div *ngIf="!customerFormGroup.controls.name.valid && customerFormGroup.controls.name.touched"
+      class="col alert alert-danger">
+      <small class="text-danger"
+        *ngIf="customerFormGroup.controls.name.hasError('required') && customerFormGroup.controls.name.touched">
+        Field is required!
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="surnameId">Surname</label>
+    <input formControlName="surname" type="text" class="form-control" id="surnameId" placeholder="Simipic">
+    <div *ngIf="!customerFormGroup.controls.surname.valid && customerFormGroup.controls.surname.touched"
+      class="col alert alert-danger">
+      <small class="text-danger"
+        *ngIf="customerFormGroup.controls.surname.hasError('required') && customerFormGroup.controls.surname.touched">
+        Field is required!
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cityId">City</label>
+    <input formControlName="city" type="text" class="form-control" id="cityId" placeholder="Zmijavci">
+    <div *ngIf="!customerFormGroup.controls.city.valid && customerFormGroup.controls.city.touched"
+      class="col alert alert-danger">
+      <small class="text-danger"
+        *ngIf="customerFormGroup.controls.city.hasError('required') && customerFormGroup.controls.city.touched">
+        Field is required!
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="addressId">Street Address</label>
+    <input formControlName="address" type="text" class="form-control" id="addressId"
+      placeholder="Trg dr. Franje Tuđmana 186">
+    <div *ngIf="!customerFormGroup.controls.address.valid && customerFormGroup.controls.address.touched"
+      class="col alert alert-danger">
+      <small class="text-danger"
+        *ngIf="customerFormGroup.controls.address.hasError('required') && customerFormGroup.controls.address.touched">
+        Field is required!
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="zipId">Postal Code</label>
+    <input formControlName="postal" type="text" class="form-control" id="zipId" placeholder="21260">
+    <div *ngIf="!customerFormGroup.controls.postal.valid && customerFormGroup.controls.postal.touched"
+      class="col alert alert-danger">
+      <small class="text-danger"
+        *ngIf="customerFormGroup.controls.postal.hasError('required') && customerFormGroup.controls.postal.touched">
+        Field is required!
+      </small>
+      <small class="text-danger"
+        *ngIf="customerFormGroup.controls.postal.hasError('pattern') && customerFormGroup.controls.postal.touched">
+        Only numbers!
+      </small>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3" (click)="submitForm()" [disabled]="!customerFormGroup.valid">Create
+    Customer</button>
+  <div></div>
+</div>

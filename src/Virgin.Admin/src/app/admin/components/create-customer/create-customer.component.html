@@ -1,0 +1,34 @@
+<div class="page-content">
+    <div class="heading-container">
+        <h2>Create Customer</h2>
+    </div>
+    <app-create-customer-form *ngIf="!resultView" (postForm)="postForm($event)"></app-create-customer-form>
+    <div *ngIf="resultView" class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-3">
+                    <span>Username</span>
+                </div>
+                <div class="col-9">
+                    {{ data.userName }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <span>Password</span>
+                </div>
+                <div class="col-9">
+                    {{ data.password }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <span>Qr-Link</span>
+                </div>
+                <div class="col-9">
+                    {{ data.qrAddress }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+@import "/src/theme/fonts.scss";
+@import "/src/theme/colors.scss";
+
+.form {
+    label {
+        font-family: $font-family--dosis-extra-bold;
+        font-size: 25px;
+        color: $theme-color-primary;
+    }
+
+    .form-group {
+        margin-bottom: 40px;
+    }
+
+    .form-control {
+        border-radius: 17px;
+        height: 50px;
+
+        color: $theme-color-primary-dark;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        background-color: $theme-color-tertiary;
+        border: none;
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-check {
+        padding-left: 30px;
+
+        .form-check-label {
+            padding-left: 20px;
+
+            input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+
+            input:checked ~ .checkmark {
+                background-color: $theme-color-primary;
+            }
+
+            .checkmark {
+                position: absolute;
+                top: 2px;
+                left: 9px;
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                border: 1px solid $theme-color-primary;
+                background-color: #eee;
+                -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    .submit-btn {
+        width: 100%;
+        height: 56px;
+        border-radius: 17px;
+        border: none;
+
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+        background: $theme-color-secondary-gradient;
+
+        color: $theme-color-white;
+        font-family: $font-family--dosis-extra-bold;
+        font-size: 25px;
+        letter-spacing: 4px;
+    }
+
+    .alert-danger {
+        position: relative;
+        top: 9px;
+        border-radius: 17px;
+        height: 45px;
+        font-size: 20px;
+        border: none;
+
+        .text-danger {
+            position: relative;
+            bottom: 6px;
+            font-family: $font-family--dosis-bold;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/17e0bebf-acf3-4dff-a33c-86ff00293678/resourceGroups/virgin-test/providers/Microsoft.Web/sites/app-virgin-client-test",
+    "appService.deploySubpath": "dist\\VirginAdmin"
+}

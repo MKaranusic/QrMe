@@ -1,0 +1,115 @@
+@import "/src/theme/fonts.scss";
+@import "/src/theme/colors.scss";
+
+@keyframes an-left {
+    to {
+        background-position: right;
+    }
+}
+
+@keyframes an-right {
+    to {
+        background-position: left;
+    }
+}
+
+.item-container {
+    height: 111px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+
+    background: linear-gradient(
+        270deg,
+        rgba(32, 218, 249, 0.8) 10%,
+        rgba(32, 218, 249, 0.7) 20%,
+        rgba(32, 218, 249, 0.5) 28%,
+        rgba(32, 218, 249, 0.4) 33.4%,
+        transparent 33.5%,
+        transparent 66.6%,
+        rgba(240, 240, 201, 0.7) 66.7%,
+        rgba(240, 240, 201, 0.8) 72%,
+        rgba(240, 240, 201, 0.9) 80%,
+        rgba(240, 240, 201, 1) 90%
+    );
+
+    background-size: 300% 100%;
+    background-position: center;
+
+    &.animation-left {
+        animation-name: an-left;
+        animation-duration: 1.5s;
+        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        animation-fill-mode: forwards;
+    }
+
+    &.animation-right {
+        animation-name: an-right;
+        animation-duration: 1.5s;
+        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        animation-fill-mode: forwards;
+    }
+
+    &.isActive {
+        background: linear-gradient(
+            270deg,
+            rgba(32, 218, 249, 1) 50%,
+            rgba(240, 240, 201, 0.7) 50%,
+            rgba(240, 240, 201, 0.8) 72%,
+            rgba(240, 240, 201, 0.9) 80%,
+            rgba(240, 240, 201, 1) 90%
+        );
+
+        background-size: 200% 100%;
+        background-position: right;
+    }
+
+    .icon-container {
+        color: $theme-color-primary;
+        font-size: 30px;
+
+        padding-left: 27px;
+    }
+
+    .counter {
+        color: $theme-color-primary-dark;
+        font-size: 23px;
+        font-family: $font-family--dosis-extra-bold;
+
+        padding-left: 32px;
+        position: relative;
+        bottom: 8px;
+
+        &.oneDigit {
+            left: 6px;
+        }
+        &.twoDigits {
+            left: 2px;
+        }
+        &.threeDigits {
+            right: 6px;
+        }
+        &.fourDigits {
+            right: 9px;
+        }
+    }
+
+    .content-container {
+        padding-left: 52px;
+
+        .name-row {
+            color: $theme-color-primary;
+            font-size: 25px;
+            font-family: $font-family--dosis-bold;
+
+            padding-top: 3px;
+        }
+
+        .link-row {
+            color: $theme-color-primary-dark;
+            font-size: 15px;
+            font-family: $font-family--dosis-bold;
+
+            padding-top: 4px;
+        }
+    }
+}

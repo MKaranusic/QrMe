@@ -1,0 +1,17 @@
+@import "~bootstrap/scss/bootstrap";
+@import "theme/fonts";
+@import "theme/colors";
+@import "~animate.css/animate.min";
+
+html {
+    body {
+        height: 100%;
+
+        font-size: 20px;
+        font-family: $font-family--dosis-medium, serif;
+        padding: 0;
+        margin: 0;
+        background: $theme-color-background-light-gradient;
+        overflow-x: hidden;
+    }
+}

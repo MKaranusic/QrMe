@@ -1,0 +1,11 @@
+<div class="row banner-container animate__animated animate__headShake animate__infinite" *ngIf="showBanner$ | async">
+  <div class="col-2 exit-con">
+    <i class="fas fa-times" (click)="hideDownloadBanner()"></i>
+  </div>
+  <div class="col-6 text-center">
+    <span>Get the App!</span>
+  </div>
+  <div class="col-4 d-flex justify-content-end">
+    <button class="install-btn btn btn-primary" (click)="installPwa()">Install</button>
+  </div>
+</div>

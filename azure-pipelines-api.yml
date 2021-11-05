@@ -1,0 +1,94 @@
+trigger:
+    branches:
+        include:
+            - main
+    paths:
+        include:
+            - "src/Virgin.Server/*"
+
+pr:
+    - main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+    DOTNET: "5.0.x"
+    BuildConfiguration: "Release"
+
+stages:
+    - stage: Build
+      jobs:
+          - job: BuildApi
+            steps:
+                - task: UseDotNet@2
+                  displayName: "Use .NET 5.0 sdk"
+                  inputs:
+                    packageType: 'sdk'
+                    version: '$(DOTNET)'
+
+                - task: NuGetToolInstaller@1
+                  inputs:
+                    versionSpec: ''
+                    checkLatest: true
+
+                - task: NuGetCommand@2
+                  displayName: "Nuget Restore WebApi"
+                  inputs:
+                    command: 'restore'
+                    restoreSolution: '**/*.sln'
+                    feedsToUse: 'select'
+                    vstsFeed: '30c1ed75-c8f0-4f89-8972-fb9ea75c9276'
+
+                - task: DotNetCoreCLI@2
+                  displayName: "Run Web Tests"
+                  inputs:
+                      command: "test"
+                      projects: "**/Virgin.Server/*.Test/*.Test.csproj"
+                      testRunTitle: "Web Tests"
+
+                - task: DotNetCoreCLI@2
+                  displayName: "Publish and zip"
+                  inputs:
+                    command: 'publish'
+                    publishWebProjects: false
+                    projects: '**/Virgin.Server/Virgin.API/Virgin.API.sln'
+                    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+                    zipAfterPublish: true
+
+                - task: PublishBuildArtifacts@1
+                  displayName: "Publish Web artifacts"
+                  inputs:
+                      PathToPublish: "$(Build.ArtifactStagingDirectory)"
+                      ArtifactName: WebApi
+
+    - stage: Test
+      dependsOn: Build
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+      jobs:
+          - deployment: DeployWebTest
+            displayName: Deploy Api
+            environment: "Test"
+            strategy:
+                runOnce:
+                    deploy:
+                        steps:
+                            - download: none
+
+                            - task: DownloadBuildArtifacts@0
+                              displayName: Download Api Build
+                              inputs:
+                                  buildType: "current"
+                                  downloadType: "single"
+                                  artifactName: "WebApi"
+                                  downloadPath: "$(System.ArtifactsDirectory)"
+
+                            - task: AzureRmWebAppDeployment@4
+                              displayName: Upload Api Build Artifacts to Test Server
+                              inputs:
+                                ConnectionType: 'AzureRM'
+                                azureSubscription: 'Test-group-service-conn'
+                                appType: 'webAppLinux'
+                                WebAppName: 'virgin-api-test'
+                                packageForLinux: '$(System.ArtifactsDirectory)/WebApi/**/*.zip'
+                                RuntimeStack: 'DOTNETCORE|5.0'

@@ -1,0 +1,37 @@
+@import "/src/theme/fonts.scss";
+@import "/src/theme/colors.scss";
+
+.new-qr-redirect-container {
+    height: 100vh;
+
+    .header-container {
+        position: relative;
+        bottom: 1px;
+        background: $theme-color-primary-gradient;
+        height: 180px;
+        z-index: 1000;
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.3);
+
+        color: $theme-color-white;
+
+        .top-row {
+            height: 20%;
+            margin-top: 7px;
+            font-size: 25px;
+        }
+
+        .heading-row {
+            margin-top: 20px;
+
+            font-size: 40px;
+            letter-spacing: 4px;
+            font-family: $font-family--dosis-extra-bold;
+        }
+    }
+
+    .form-container {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}

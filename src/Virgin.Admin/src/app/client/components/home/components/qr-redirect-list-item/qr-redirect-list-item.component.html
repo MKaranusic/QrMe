@@ -1,0 +1,21 @@
+<div class="row item-container" [class.isActive]="isActive" (panleft)="panLeft($event)" (panright)="panRight($event)"
+  (panend)="panEnd($event)" [ngClass]="animation.animationClass">
+  <div class="col-2 meta-container">
+    <div class="row">
+      <div class="icon-container">
+        <i class="fas fa-eye"></i>
+      </div>
+    </div>
+    <div class="row counter" [ngClass]="numberOfDigits()">
+      <span>{{ customerRedirect?.timesViewed }}</span>
+    </div>
+  </div>
+  <div class="col-10 content-container">
+    <div class="row name-row">
+      <span>{{ customerRedirect?.name }}</span>
+    </div>
+    <div class="row link-row">
+      <span>{{ customerRedirect?.targetUrl | turncateString }}</span>
+    </div>
+  </div>
+</div>

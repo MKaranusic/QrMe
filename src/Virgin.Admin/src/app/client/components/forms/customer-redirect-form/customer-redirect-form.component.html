@@ -1,0 +1,43 @@
+<div [formGroup]="customerRedirectFormGroup" class="form">
+  <div class="form-group">
+    <label for="nameId" class="d-flex justify-content-center">Name</label>
+    <input formControlName="name" type="text" class="form-control" id="nameId" placeholder="Name of your choice">
+    <div *ngIf="!customerRedirectFormGroup.controls.name.valid && customerRedirectFormGroup.controls.name.touched"
+      class="col alert alert-danger">
+      <small class="text-danger"
+        *ngIf="customerRedirectFormGroup.controls.name.hasError('required') && customerRedirectFormGroup.controls.name.touched">
+        Field is required!
+      </small>
+      <small class="text-danger"
+        *ngIf="customerRedirectFormGroup.controls.name.hasError('maxlength') && customerRedirectFormGroup.controls.name.touched">
+        This field can have up to 75 characters!
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="targetUrlId" class="d-flex justify-content-center">Redirect Link</label>
+    <input formControlName="targetUrl" type="text" class="form-control" id="targetUrlId"
+      placeholder="https://www.youtube.com">
+    <div
+      *ngIf="!customerRedirectFormGroup.controls.targetUrl.valid && customerRedirectFormGroup.controls.targetUrl.touched"
+      class="col alert alert-danger">
+      <small class="text-danger"
+        *ngIf="customerRedirectFormGroup.controls.targetUrl.hasError('required') && customerRedirectFormGroup.controls.targetUrl.touched">
+        Field is required!
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-group form-check">
+      <label class="form-check-label" for="isActiveId">
+        <input formControlName="isActive" class="form-check-input" type="checkbox" id="isActiveId">
+        <span class="checkmark"></span>
+        isActive</label>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-primary submit-btn" (click)="submitForm()"
+      [disabled]="!customerRedirectFormGroup.valid">Submit</button>
+  </div>
+
+</div>
