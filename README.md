@@ -19,6 +19,8 @@ or scan the QrCode:
 ### Notes:
 The backend is hosted on Azure App Services - free tier, so the app is in cold start mode, it may take somewhere from 10 to 30 seconds for it to start up initially.
 
+> App intended for mobile use
+
 > **Demo user is reset to a state of a brand new account a minute after app startup.**
 
 > The app is downloadable as a PWA
